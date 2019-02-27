@@ -2,6 +2,7 @@ package Tests;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 import org.junit.Assert;
 
@@ -9,7 +10,7 @@ import Entidades.Filme;
 import Entidades.NotaAluguel;
 import Entidades.TipoAluguel;
 import Servicos.AluguelService;
-
+import cucumber.api.DataTable;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
@@ -32,6 +33,14 @@ public class locadoraSteps {
 	@Dado("^que o preço do aluguel seja R\\$(\\d+)$")
 	public void queOPreçoDoAluguelSejaR$(int arg1) throws Throwable {
 		filme.setAluguel(arg1);
+	}
+
+	@Dado("^um filme$")
+	public void umFilme(DataTable table) throws Throwable {
+		Map<String, String> map = table.asMap(String.class, String.class);
+		filme = new Filme(); // inicializar o filme
+		filme.setEstoque(Integer.parseInt(map.get("estoque"))); // relacionado ao estoque
+		filme.setAluguel(Integer.parseInt(map.get("preco")));
 	}
 
 	@Quando("^alugar$")

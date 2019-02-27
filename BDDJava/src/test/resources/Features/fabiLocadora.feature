@@ -7,8 +7,7 @@ Funcionalidade: Alugar Filme
   Cenário: 1) Devo alugar um filme com sucesso
   	| estoque | 2 |
   	| preco   | 3 |
-    Dado um filme com estoque de 2 unidades
-    E que o preço do aluguel seja R$3
+    
     Quando alugar
     Então o preço do aluguel será de R$3
     E a data de entrega será no dia seguinte

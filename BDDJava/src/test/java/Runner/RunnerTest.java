@@ -12,8 +12,8 @@ import cucumber.api.junit.Cucumber;
 features = "src/test/resources/Features/fabiLocadora.feature",
 glue = "Steps",
 tags = {},
-plugin = "pretty",
-monochrome = true,
+plugin = {"pretty", "html: target/report-html", "json:target/report.json"},
+monochrome = false,
 //esse plugin irá juntar o nome do metodo sem usar underline
 snippets = SnippetType.CAMELCASE,
 dryRun = false,
@@ -21,7 +21,7 @@ strict = false
 
 )
 
-public class Runners {
+public class RunnerTest {
 				
 
 }
